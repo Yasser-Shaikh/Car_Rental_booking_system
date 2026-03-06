@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Admin Panel</title>
+    <style>
+      body {
+        font-family: Arial;
+        background-color: white;
+        color: black;
+        text-align: center;
+      }
+      table {
+        margin: 30px auto;
+        border-collapse: collapse;
+        width: 90%;
+      }
+      th,
+      td {
+        border: 1px solid white;
+        padding: 10px;
+      }
+      th {
+        background-color: #333;
+      }
+      tr:hover {
+        background-color: #222;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Admin Panel - All Bookings</h1>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Car</th>
+        <th>Days</th>
+        <th>Total</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+
+      {% for booking in bookings %}
+      <tr>
+        <td>{{ booking[0] }}</td>
+        <td>{{ booking[1] }}</td>
+        <td>{{ booking[2] }}</td>
+        <td>{{ booking[3] }}</td>
+        <td>₹{{ booking[4] }}</td>
+        <td>{{ booking[5] }}</td>
+        <td>
+          <a href="{{ url_for('delete_booking', id=booking[0]) }}">
+            <button
+              style="background: red; color: white; border: none; padding: 5px"
+            >
+              Delete
+            </button>
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <a href="{{ url_for('logout') }}">
+      <button style="background: red; color: white; padding: 8px; border: none">
+        Logout
+      </button>
+    </a>
+  </body>
+</html>

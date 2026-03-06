@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+}
+
+nav {
+    background-color: #1e90ff;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav li {
+    cursor: pointer;
+}
+
+nav li:hover {
+    text-decoration: underline;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.cars {
+    text-align: center;
+    padding: 20px;
+}
+
+.car-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.car-card {
+    background-color: white;
+    width: 220px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.car-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.car-card:hover {
+    transform: scale(1.05);
+}
+
+.booking {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+input,
+select {
+    width: 90%;
+    padding: 5px;
+}
+
+button {
+    background-color: #1e90ff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0d6efd;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .car-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

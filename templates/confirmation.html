@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Booking Confirmed</title>
+  </head>
+  <body
+    style="
+      text-align: center;
+      font-family: Arial;
+      background: #12b66aa3;
+      color: white;
+      margin-top: 100px;
+    "
+  >
+    <h1>🎉 Booking Confirmed!</h1>
+
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Car:</strong> {{ car }}</p>
+    <p><strong>Days:</strong> {{ days }}</p>
+    <p><strong>Total Amount:</strong> ₹{{ total }}</p>
+
+    <br />
+    <a href="/">
+      <button
+        style="padding: 10px; background: green; color: white; border: none"
+      >
+        Book Another Car
+      </button>
+    </a>
+  </body>
+</html>

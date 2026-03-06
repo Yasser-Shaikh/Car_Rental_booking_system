@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Car Rental Booking System</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <nav>
+      <h2>CarRental</h2>
+      <ul>
+        <li>Home</li>
+        <li>Cars</li>
+        <li>Booking</li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1>Car Rental Booking System</h1>
+    </header>
+
+    <section class="cars">
+      <h2>Available Cars</h2>
+
+      <div class="car-container">
+        <div class="car-card">
+          <img
+            src="{{ url_for('static', filename='swift.jpg.png') }}"
+            alt="Swift"
+          />
+          <h3>Swift</h3>
+          <p>₹1000/day</p>
+        </div>
+
+        <div class="car-card">
+          <img
+            src="{{ url_for('static', filename='wagonr.jpg.png') }}"
+            alt="Wagonr"
+          />
+          <h3>Wagonr</h3>
+          <p>₹1000/day</p>
+        </div>
+
+        <div class="car-card">
+          <img
+            src="{{ url_for('static', filename='dzire.jpg.png' ) }}"
+            alt="Dzire"
+          />
+          <h3>Dzire</h3>
+          <p>₹1000/day</p>
+        </div>
+
+        <div class="car-card">
+          <img
+            src="{{ url_for('static', filename='ertiga.jpg.png') }}"
+            alt="Ertiga"
+          />
+          <h3>Ertiga</h3>
+          <p>₹2500/day</p>
+        </div>
+
+        <div class="car-card">
+          <img
+            src="{{ url_for('static', filename='innova.jpg.png') }}"
+            alt="Innova Crysta"
+          />
+          <h3>Innova Crysta</h3>
+          <p>₹4500/day</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking">
+      <h2>Book a Car</h2>
+
+      <form action="/book" method="POST">
+        <label for="username">Your Name:</label><br />
+        <input type="text" id="username" name="name" required /><br /><br />
+
+        <label for="car">Select Car:</label><br />
+        <select id="car" name="car">
+          <option value="Swift">Swift - ₹1000/day</option>
+          <option value="Wagonr">Wagonr - ₹1000/day</option>
+          <option value="Dzire">Dzire - ₹1000/day</option>
+          <option value="Ertiga">Ertiga - ₹2500/day</option>
+          <option value="Innova Crysta">
+            Innova Crysta - ₹4500/day
+          </option></select
+        ><br /><br />
+
+        <label for="days">Number of Days:</label><br />
+        <input type="number" id="days" name="days" required /><br /><br />
+
+        <button type="submit">Book Now</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2026 Car Rental System</p>
+    </footer>
+  </body>
+</html>
