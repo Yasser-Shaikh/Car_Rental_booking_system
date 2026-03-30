@@ -13,6 +13,68 @@ def get_db_connection():
         password="Y@sser2105"
     )
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        cur.execute(
+            "INSERT INTO users (username, password) VALUES (%s, %s)",
+            (username, password)
+        )
+        conn.commit()
+
+        cur.close()
+        conn.close()
+
+        return redirect(url_for('user_login'))
+
+    return render_template('register.html')
+
+
+@app.route('/user_login', methods=['GET', 'POST'])
+def user_login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        cur.execute(
+            "SELECT * FROM users WHERE username=%s AND password=%s",
+            (username, password)
+        )
+        user = cur.fetchone()
+
+        cur.close()
+        conn.close()
+
+        if user:
+            session['user'] = username
+            return redirect(url_for('dashboard'))
+        else:
+            return "Invalid Login"
+
+    return render_template('user_login.html')
+
+
+@app.route('/dashboard')
+def dashboard():
+    if 'user' not in session:
+        return redirect(url_for('user_login'))
+
+    return render_template('dashboard.html')
+
+@app.route('/user_logout')
+def user_logout():
+    session.pop('user', None)
+    return redirect(url_for('user_login'))
+
 # 🏠 Home
 @app.route('/')
 def home():

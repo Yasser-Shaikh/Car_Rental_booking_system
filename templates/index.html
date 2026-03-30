@@ -8,14 +8,23 @@
     />
   </head>
   <body>
+    <div style="background: #000; padding: 15px; text-align: center">
+      <a href="/" style="color: white; margin: 10px">Home</a>
+      <a href="/contact" style="color: white; margin: 10px">Contact</a>
+      <a href="/user_login" style="color: white; margin: 10px">User Login</a>
+      <a href="/register" style="color: white; margin: 10px">Register</a>
+      <a href="/login" style="color: white; margin: 10px">Admin</a>
+    </div>
     <nav>
-      <a href="/contact">Contact Us</a>
-      <h2>CarRental</h2>
-      <ul>
+      <!-- <a href="/register">Register</a>
+      <a href="/user_login">User Login</a>
+      <a href="/contact">Contact Us</a> -->
+      <i><h2 style="text-align: center">Car Rental Booking</h2></i>
+      <!-- <ul>
         <li>Home</li>
         <li>Cars</li>
         <li>Booking</li>
-      </ul>
+      </ul> -->
     </nav>
 
     <header>
@@ -79,8 +88,12 @@
       <form action="/book" method="POST">
         <label for="username">Your Name:</label><br />
         <input type="text" id="username" name="name" required /><br /><br />
-        <input type="text" name="mobile" placeholder="Enter Mobile Number" required>
-
+        <input
+          type="text"
+          name="mobile"
+          placeholder="Enter Mobile Number"
+          required
+        />
 
         <label for="car">Select Car:</label><br />
         <select id="car" name="car">
