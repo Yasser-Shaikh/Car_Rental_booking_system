@@ -4,7 +4,7 @@ import psycopg2
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
-# 🔗 Database Connection
+#  Database Connection
 def get_db_connection():
     return psycopg2.connect(
         host="localhost",
@@ -75,12 +75,12 @@ def user_logout():
     session.pop('user', None)
     return redirect(url_for('user_login'))
 
-# 🏠 Home
+#  Home
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# 🚗 Booking
+#  Booking
 @app.route('/book', methods=['POST'])
 def book():
     name = request.form.get('name')
@@ -127,7 +127,7 @@ def book():
         total=total
     )
 
-# 🔐 Admin Panel
+#  Admin Panel
 @app.route('/admin')
 def admin():
     if 'admin' not in session:
@@ -144,7 +144,7 @@ def admin():
 
     return render_template('admin.html', bookings=bookings)
 
-# 🔑 Login
+#  Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -171,7 +171,7 @@ def login():
 
     return render_template('login.html')
 
-# 📩 Contact Form
+#  Contact Form
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
@@ -198,13 +198,13 @@ def contact():
 
     return render_template('contact.html')
 
-# 🚪 Logout
+#  Logout
 @app.route('/logout')
 def logout():
     session.pop('admin', None)
     return redirect(url_for('login'))
 
-# ❌ Delete Booking
+#  Delete Booking
 @app.route('/delete/<int:id>')
 def delete_booking(id):
     if 'admin' not in session:
@@ -221,9 +221,40 @@ def delete_booking(id):
 
     return redirect(url_for('admin'))
 
-# ▶ Run App
+#  Run App
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
